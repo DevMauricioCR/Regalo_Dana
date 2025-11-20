@@ -1,12 +1,15 @@
-/* Importando la fuente Poppins */
+/* Importando la fuente Poppins (General) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
+/* Importando la fuente Satisfy (Para la Carta Antigua) */
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 * {
     font-family: 'Poppins', cursive;
 }
 
-/* Estilos generales */
+/* --- ESTILOS GENERALES Y PÁGINA DE INICIO --- */
+
 body {
-    color: azure;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -15,11 +18,10 @@ body {
     justify-content: center;
     background-color: black;
     margin: 0;
-    padding: 0 10px; /* Añadido para dar un poco de espacio en pantallas pequeñas */
+    padding: 0 10px;
     box-sizing: border-box;
 }
 
-/* Página inicial y carta */
 .greetings {
     font-size: 6rem;
     font-weight: 900;
@@ -31,13 +33,14 @@ body {
     animation: glow 3s ease-in-out infinite;
 }
 
+/* Colores de la animación de brillo de la página principal (Azul, Rojo) */
 @keyframes glow {
     0%, 100% {
-        color: #fff;
-        text-shadow: 0 0 12px #ff0000, 0 0 50px #ff0000, 0 0 100px #ff0000;
+        color: #00BFFF; /* Azul Eléctrico para el texto principal */
+        text-shadow: 0 0 12px #FF0000, 0 0 50px #FF0000, 0 0 100px #FF0000; /* Resplandor Rojo */
     }
     10%, 90% {
-        color: #696565;
+        color: #3333FF; /* Azul Oscuro cuando se apaga */
         text-shadow: none;
     }
 }
@@ -45,7 +48,7 @@ body {
 .description {
     font-size: 1.5rem;
     margin-bottom: 20px;
-    color: #ff0000;
+    color: #00FF00; /* Verde Brillante */
     text-align: center;
     padding: 0 15px;
 }
@@ -55,27 +58,27 @@ body {
 }
 
 .button button {
-    background-color: rgb(255, 0, 0); /* Fondo amarillo */
-    border: none; /* Sin bordes */
-    padding: 10px 20px; /* Ajusta el relleno según tu preferencia */
-    font-size: 18px; /* Tamaño de fuente */
+    background-color: #FF0000; /* Rojo Vibrante */
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
     cursor: pointer;
-    position: relative; /* Necesario para el resplandor */
-    border-radius: 20px; /* Esquinas redondeadas */
-    transition: background-color 0.3s ease-in-out; /* Transición suave para el color de fondo */
+    position: relative;
+    border-radius: 20px;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .button button:hover {
-    background-color: orange; /* Cambia el color de fondo al pasar el mouse a naranja */
-    box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow; /* Efecto de resplandor amarillo */
+    background-color: #3333FF; /* Azul Oscuro al pasar el mouse */
+    box-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 30px #00BFFF; /* Efecto de resplandor Azul Eléctrico */
 }
 
 .button button a {
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    color: inherit; /* Hereda el color del texto del botón */
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Media Queries para Responsividad */
+/* Media Queries para Responsividad de la página de inicio */
 @media (max-width: 768px) {
     .greetings {
         font-size: 4rem;
@@ -106,119 +109,95 @@ body {
     }
 }
 
-/* Carta de felicitación */
-.card {
-    width: 100%;
-    max-width: 350px;
-    background-color: #fff;  /* Fondo blanco para la tarjeta */
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    margin: 20px 0; /* Añadido para dar un poco de espacio en la parte superior e inferior */
-}
+/* --- CAMBIO NECESARIO PARA QUE EL BOTÓN SEA VISIBLE --- */
 
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card-header {
-    background-color: #ffdd00;  /* Fondo amarillo */
-    color: #111;  /* Texto negro */
-    text-align: center;
-    padding: 20px;
-    border-bottom: 5px solid #000;  /* Borde negro */
+.creditcart {
+    /* Se eliminan: transform: rotate(90deg), height: 10px, width: 40px, margin-left: -30px */
+    transform: none; /* Deshace la rotación */
+    width: 100%; /* Permite que el botón se centre */
+    height: auto;
+    margin: 15px auto 0 auto; /* Espacio debajo del texto y lo centra */
+    text-align: center; 
+    z-index: 10;
     position: relative;
+    padding-top: 5px; 
 }
 
-.card-header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
+.creditcart a {
+    /* Estilos para que el enlace parezca botón, usando tu color original */
+    color: white; 
+    background-color: #7c0202; 
+    text-decoration: none; 
+    font-size: 16px; 
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 20px;
+    border-radius: 20px; 
+    display: inline-block; 
+    transition: background-color 0.3s;
 }
 
-.card-content {
-    display: none;
-    padding: 20px;
-    color: #111;  /* Texto negro */
+.creditcart a:hover {
+    background-color: #5d0101; 
+}
+
+.textcart {
+    width: 250px; 
+    height: 396px;
+    margin: 0 auto;
+    overflow: auto; /* Mantenemos overflow auto para que el desplazamiento con el mouse siga funcionando */
+    font: 17px satisfy;
+    text-align: justify;
+    color: black;
+    line-height: 110%;
+    
+    /* 🛠️ INICIO: CORRECCIONES PARA OCULTAR EL SCROLL 🛠️ */
+    /* Ocultar scroll en navegadores basados en Webkit (Chrome, Safari, Edge) */
+    &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* Oculta la barra de desplazamiento */
+    }
+    
+    /* Ocultar scroll en Firefox */
+    scrollbar-width: none;
+    /* 🛠️ FIN: CORRECCIONES PARA OCULTAR EL SCROLL 🛠️ */
+}
+
+.lett2 {
+    width: 280px;
+    height: 396px;
+    margin: 0 auto;
+    background: url(http://orig00.deviantart.net/f8fe/f/2015/124/4/f/carta2_by_igneous93-d8s7lw8.png);
+    padding: 35px;
+    margin-top: -350px;
+    opacity: 0;
+    transition: 1.5s;
+}
+
+.nombr12 {
+    font: 30px 'Satisfy';
+}
+
+.sobr1 {
+    background: url(http://orig11.deviantart.net/f31c/f/2015/124/0/8/carta_by_igneous93-d8s7lqf.png);
+    width: 400px;
+    height: 193px;
+    margin: 0 auto;
+    margin-top: 150px;
     text-align: center;
-    line-height: 1.6;
-    transition: opacity 0.3s ease;
+    padding-top: 35px;
 }
 
-.card-content.show {
-    display: block;
+.carta1 {
+    width: 430px;
+    margin: 0 auto;
+}
+
+.carta1:hover .lett2 {
     opacity: 1;
+    transition: 1.5s;
 }
 
-.card-content p {
-    margin: 15px 0;
-    font-size: 1rem;
-}
-
-.card-content p strong {
-    color: #d8bc03;  /* Amarillo */
-    font-weight: 600;
-}
-
-.card-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #ffdd00;  /* Fondo amarillo */
-    border-top: 5px solid #000;  /* Borde negro */
-}
-
-.card-footer button {
-    background-color: #111;  /* Fondo negro */
-    color: #fff;  /* Texto blanco */
-    border: none;
-    padding: 12px 30px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    outline: none;
-}
-
-.card-footer button:hover {
-    background-color: #333;  /* Negro más claro */
-    transform: translateY(-2px);
-}
-
-/* Responsividad de la tarjeta */
-@media (max-width: 768px) {
-    .card {
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .greetings {
-        font-size: 2rem;
-    }
-
-    .description {
-        font-size: 0.9rem;
-        padding: 0 10px;
-    }
-
-    .button button {
-        padding: 5px 10px;
-        font-size: 12px;
-    }
-
-    .card {
-        max-width: 100%;
-        border-radius: 10px;
-    }
-
-    .card-header h1 {
-        font-size: 1.3rem;
-    }
-
-    .card-footer button {
-        padding: 10px 25px;
-        font-size: 0.8rem;
-    }
+.carta1:hover .nombr12 {
+    opacity: 0;
+    transition: 0s;
 }

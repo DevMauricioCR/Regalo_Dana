@@ -6,25 +6,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
-    <title>FLORES</title>
+    <title>Feliz Cumpleaños!!</title>
 </head>
 <body>
-    <div class="greetings">
-        <span>F</span><span>E</span><span>L</span><span>I</span><span>Z</span>
-        <span> </span>
-        <span>C</span><span>U</span><span>M</span><span>P</span><span>L</span><span>E</span><span>A</span><span>Ñ</span><span>O</span><span>S</span>
+    
+    <div style="font-size:60px; text-transform: uppercase; font-weight: bolder; margin-bottom: 20px; text-align: center;">
+        <script>
+        var message1="FELIZ CUMPLEAÑOS" // Título
+        var neonbasecolor1="#666666" // CORRECCIÓN: Gris Medio para base visible
+        var neontextcolor1="#FF0000" // Rojo neón brillante
+        var neontextcolor2_1="#FFAAAA" 
+        var flashspeed1=100 
+        var flashingletters1=3 
+        var flashingletters2_1=1 
+        var flashpause1=0 
+        var id_prefix1 = "neonlightA" // ID único para el primer script
+
+        var n1=0
+        if (document.all||document.getElementById){
+        document.write('<font color="'+neonbasecolor1+'">')
+        for (m=0;m<message1.length;m++)
+        document.write('<span id="'+id_prefix1+m+'">'+message1.charAt(m)+'</span>')
+        document.write('</font>')
+        }
+        else
+        document.write(message1)
+
+        function crossref1(number){
+        var crossobj=document.all? eval("document.all."+id_prefix1+number) : document.getElementById(id_prefix1+number)
+        return crossobj
+        }
+
+        function neon1(){
+        if (n1==0){
+        for (m=0;m<message1.length;m++)
+        crossref1(m).style.color=neonbasecolor1
+        }
+        crossref1(n1).style.color=neontextcolor1
+        if (n1>flashingletters1-1) crossref1(n1-flashingletters1).style.color=neontextcolor2_1
+        if (n1>(flashingletters1+flashingletters2_1)-1) crossref1(n1-flashingletters1-flashingletters2_1).style.color=neonbasecolor1
+
+        if (n1<message1.length-1)
+        n1++
+        else{
+        n1=0
+        clearInterval(flashing1)
+        setTimeout("beginneon1()",flashpause1)
+        return
+        }
+        }
+
+        function beginneon1(){
+        if (document.all||document.getElementById)
+        flashing1=setInterval("neon1()",flashspeed1)
+        }
+        beginneon1()
+        </script>
     </div>
     
-    <div class="description">
-        <span>Es un gran día para celebrar sin importar la distancia, ¡te preparé algo, mapachito!</span>
+    <div style="font-size:24px; text-transform: uppercase; font-weight: bold; margin-bottom: 40px; text-align: center;">
+        <script>
+        var message2="ES UN GRAN DIA PARA CELEBRAR SIN IMPORTAR LA DISTANCIA, TE PREPARE ALGO, PRIMA!" 
+        var neonbasecolor2="#444444" // CORRECCIÓN: Gris Oscuro para base visible
+        var neontextcolor2="#00FF00" // Verde neón
+        var neontextcolor2_2="#AAFFAA" // Verde claro reflejo
+        var flashspeed2=150 // Un poco más lento para el texto largo
+        var flashingletters2=2 
+        var flashingletters2_2=1 
+        var flashpause2=0 
+        var id_prefix2 = "neonlightB" // ID único para el segundo script
+
+        var n2=0
+        if (document.all||document.getElementById){
+        document.write('<font color="'+neonbasecolor2+'">')
+        for (m=0;m<message2.length;m++)
+        document.write('<span id="'+id_prefix2+m+'">'+message2.charAt(m)+'</span>')
+        document.write('</font>')
+        }
+        else
+        document.write(message2)
+
+        function crossref2(number){
+        var crossobj=document.all? eval("document.all."+id_prefix2+number) : document.getElementById(id_prefix2+number)
+        return crossobj
+        }
+
+        function neon2(){
+        if (n2==0){
+        for (m=0;m<message2.length;m++)
+        crossref2(m).style.color=neonbasecolor2
+        }
+        crossref2(n2).style.color=neontextcolor2
+        if (n2>flashingletters2-1) crossref2(n2-flashingletters2).style.color=neontextcolor2_2
+        if (n2>(flashingletters2+flashingletters2_2)-1) crossref2(n2-flashingletters2-flashingletters2_2).style.color=neonbasecolor2
+
+        if (n2<message2.length-1)
+        n2++
+        else{
+        n2=0
+        clearInterval(flashing2)
+        setTimeout("beginneon2()",flashpause2)
+        return
+        }
+        }
+
+        function beginneon2(){
+        if (document.all||document.getElementById)
+        flashing2=setInterval("neon2()",flashspeed2)
+        }
+        beginneon2()
+        </script>
     </div>
+    
     <div class="button">
         <button>
             <a href="Carta.html">¡Presiona, sé que quieres!</a>
         </button>
     </div>
 
-    <!-- Firebase SDK -->
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
