@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Felicitación</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h1>¡Feliz Cumpleaños!</h1>
+        </div>
+        <div class="card-content">
+            <p>Wenos días, tardes o noches <strong>mapachito</strong>,</p>
+            <p>Feliz cumpleaños, te quiero infinitos. Eres una súper amistad que es invaluable e irremplazable, un mundo digno de conocer y explorar. Te deseo mucha salud, felicidad y que estés rodeado de buenas compañías. Espero que te la pases súper aunque te toque trabajar. ¡Te mando muchas súper buenas vibras! Ya no eres colágeno, ahora eres Ensure, jajaja.</p>
+            <p>Recuerda siempre lo importante que eres para mí, y que todas tus metas y sueños se cumplan!!!! ¡Disfruta tu día al máximo!</p>
+            <p>Con todo mi cariño, te mando este pequeño detalle ya que tu regalo no llegará a tiempo, jajajajaja. P.D. ¡Manda un pedazo de pastel si hay! Jajaja.</p>
+            <p><strong>Con cariño, tu mejor amix online</strong></p>
+        </div>
+        <div class="card-footer">
+            <button onclick="toggleContent()">Abrir Carta</button>
+            <button onclick="window.location.href='FLORES.html';">Ver sorpresa</button>
+        </div>
+    </div>
+    
+
+    <script>
+        function toggleContent() {
+            const content = document.querySelector('.card-content');
+            const button = document.querySelector('.card-footer button');
+            content.classList.toggle('show');
+            button.textContent = content.classList.contains('show') ? 'Cerrar Carta' : 'Abrir Carta';
+        }
+    </script>
+</body>
+</html>

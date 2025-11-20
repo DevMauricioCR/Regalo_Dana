@@ -1,0 +1,224 @@
+/* Importando la fuente Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
+* {
+    font-family: 'Poppins', cursive;
+}
+
+/* Estilos generales */
+body {
+    color: azure;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    margin: 0;
+    padding: 0 10px; /* Añadido para dar un poco de espacio en pantallas pequeñas */
+    box-sizing: border-box;
+}
+
+/* Página inicial y carta */
+.greetings {
+    font-size: 6rem;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+}
+
+.greetings > span {
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        color: #fff;
+        text-shadow: 0 0 12px #ff0000, 0 0 50px #ff0000, 0 0 100px #ff0000;
+    }
+    10%, 90% {
+        color: #696565;
+        text-shadow: none;
+    }
+}
+
+.description {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ff0000;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.button {
+    margin-top: 20px;
+}
+
+.button button {
+    background-color: rgb(255, 0, 0); /* Fondo amarillo */
+    border: none; /* Sin bordes */
+    padding: 10px 20px; /* Ajusta el relleno según tu preferencia */
+    font-size: 18px; /* Tamaño de fuente */
+    cursor: pointer;
+    position: relative; /* Necesario para el resplandor */
+    border-radius: 20px; /* Esquinas redondeadas */
+    transition: background-color 0.3s ease-in-out; /* Transición suave para el color de fondo */
+}
+
+.button button:hover {
+    background-color: orange; /* Cambia el color de fondo al pasar el mouse a naranja */
+    box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow; /* Efecto de resplandor amarillo */
+}
+
+.button button a {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto del botón */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .greetings {
+        font-size: 4rem;
+    }
+
+    .description {
+        font-size: 1.2rem;
+    }
+
+    .button button {
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .greetings {
+        font-size: 2.5rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .button button {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}
+
+/* Carta de felicitación */
+.card {
+    width: 100%;
+    max-width: 350px;
+    background-color: #fff;  /* Fondo blanco para la tarjeta */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin: 20px 0; /* Añadido para dar un poco de espacio en la parte superior e inferior */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-header {
+    background-color: #ffdd00;  /* Fondo amarillo */
+    color: #111;  /* Texto negro */
+    text-align: center;
+    padding: 20px;
+    border-bottom: 5px solid #000;  /* Borde negro */
+    position: relative;
+}
+
+.card-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.card-content {
+    display: none;
+    padding: 20px;
+    color: #111;  /* Texto negro */
+    text-align: center;
+    line-height: 1.6;
+    transition: opacity 0.3s ease;
+}
+
+.card-content.show {
+    display: block;
+    opacity: 1;
+}
+
+.card-content p {
+    margin: 15px 0;
+    font-size: 1rem;
+}
+
+.card-content p strong {
+    color: #d8bc03;  /* Amarillo */
+    font-weight: 600;
+}
+
+.card-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffdd00;  /* Fondo amarillo */
+    border-top: 5px solid #000;  /* Borde negro */
+}
+
+.card-footer button {
+    background-color: #111;  /* Fondo negro */
+    color: #fff;  /* Texto blanco */
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    outline: none;
+}
+
+.card-footer button:hover {
+    background-color: #333;  /* Negro más claro */
+    transform: translateY(-2px);
+}
+
+/* Responsividad de la tarjeta */
+@media (max-width: 768px) {
+    .card {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .greetings {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .button button {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .card {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    .card-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .card-footer button {
+        padding: 10px 25px;
+        font-size: 0.8rem;
+    }
+}
